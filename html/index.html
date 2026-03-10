@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>eBird + Dictionary Mashup</title>
+    <style>
+      body, form{
+        margin:20px auto;
+        max-width:900px;
+        overflow-x:hidden;
+        font-family:sans-serif;
+      }
+      fieldset{
+        display:flex;
+        align-items:center;
+        gap:12px;
+        flex-wrap:wrap;
+      }
+      label{
+        white-space:nowrap;
+      }
+      input, select{
+        flex-grow:1;
+        min-width:140px;
+      }
+      input#word{
+        flex-grow:2;
+        min-width:220px;
+      }
+      input[type="submit"]{
+        flex-grow:0;
+        min-width:120px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form action="mashup" method="get">
+      <fieldset>
+        <legend>eBird + Dictionary Mashup</legend>
+
+        <label for="region">State:</label>
+        <select id="region" name="region">
+          <option value="US-NY">New York (US-NY)</option>
+          <option value="US-NJ">New Jersey (US-NJ)</option>
+          <option value="US-PA">Pennsylvania (US-PA)</option>
+          <option value="US-CT">Connecticut (US-CT)</option>
+          <option value="US-MA">Massachusetts (US-MA)</option>
+        </select>
+
+        <label for="maxResults">maxResults:</label>
+        <input
+          id="maxResults"
+          name="maxResults"
+          type="number"
+          min="1"
+          max="50"
+          placeholder="Only fetch this number of observations"
+        />
+
+        <label for="back">back (days):</label>
+        <input
+          id="back"
+          name="back"
+          type="number"
+          min="1"
+          max="30"
+          placeholder="The number of days back to fetch observations"
+        />
+
+        <label for="word">Word to define:</label>
+        <input
+          id="word"
+          name="word"
+          type="text"
+          placeholder="Enter a word to define"
+        />
+
+        <input type="submit" value="Search" />
+      </fieldset>
+    </form>
+  </body>
+</html>
